@@ -141,6 +141,7 @@ footer {
   display: inline-flex;
   text-align: center;
   width: fit-content;
+  flex-wrap: wrap; 
   
 }
 
