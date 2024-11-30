@@ -49,57 +49,58 @@
 
     <section id="galeria" class="section">
         <h2>GALLERY</h2>
-<div>
-        <div class="slideshow-container">
-            <div class="slide fade">
-              <img src="imagenes/imagen 1.jpg" alt="Slide 1">
-            </div>
-            <div class="slide fade">
-                <img src="imagenes/imagen2.jpg" alt="Slide 2">
-            </div>
-            <div class="slide fade">
-                <img src="imagenes/imagen3.jpg" alt="Slide 3">
-            </div>
-            <div class="slide fade">
-                <img src="imagenes/imagen4.jpg" alt="Slide 4">
-              </div>
-              <div class="slide fade">
-                <img src="imagenes/imagen5.jpg" alt="Slide 5">
-              </div>
-              <div class="slide fade">
-                <img src="imagenes/imagen6.jpg" alt="Slide 6">
-              </div>
-              <div class="slide fade">
-                <img src="imagenes/imagen7.jpg" alt="Slide 7">
-              </div>
-              <div class="slide fade">
-                <img src="imagenes/imagen8.jpg" alt="Slide 8">
-              </div>
-              <div class="slide fade">
-                <img src="imagenes/imagen9.jpg" alt="Slide 9">
-              </div>
-              
-        <!---->
-            <!-- Controles -->
-            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        <div id="slideshow"></div>
 
-          </div>
-        
-          <div class="dots-container">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
-            <span class="dot" onclick="currentSlide(6)"></span>
-            <span class="dot" onclick="currentSlide(7)"></span>
-            <span class="dot" onclick="currentSlide(8)"></span>
-            <span class="dot" onclick="currentSlide(9)"></span>
-            
+<script>
+const imageUrls = [
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866776/studio%2012/pwxmcvnvvfyjsbctgdzr.jpg',
+  'https://asset.cloudinary.com/dqe5kqmgo/004bc6227753ced0373ff7bb9bf59793',
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866775/studio%2012/q22wc5w3t90o4q7wzjg0.jpg',
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866775/studio%2012/vnbfjrjjerywftxoxwgv.jpg',
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866775/studio%2012/fxlw5885rnxmoqmakoof.jpg',
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866775/studio%2012/d6cc4uj513v194zdnivp.jpg',
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866775/studio%2012/aemjcbjtpgvozxqdbh3y.jpg',
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866775/studio%2012/yfxqzbjb1n4orln2d2yd.webp',
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866775/studio%2012/j8bhhb9sfn2h0pzq3vkr.jpg',
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866776/studio%2012/zewo3y4vofibpm5xx62d.jpg',
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866776/studio%2012/pwxmcvnvvfyjsbctgdzr.jpg',
+  'https://res.cloudinary.com/dqe5kqmgo/image/upload/v1732866776/studio%2012/ana0fvm7jm64yxnulcus.jpg',
+];
 
-          </div>
-        
-          <script src="script.js"></script>
+const slideshow = document.getElementById('slideshow');
+let currentImageIndex = 0;
+
+function showImage(index) {
+  // Crea un nuevo elemento de imagen
+  const img = document.createElement('img');
+  img.src = imageUrls[index];
+
+  // Agrega la imagen al slideshow
+  slideshow.appendChild(img);
+
+  // Espera a que la imagen se cargue
+  img.onload = () => {
+    // Oculta la imagen anterior (si existe)
+    const previousImage = slideshow.querySelector('.active');
+    if (previousImage) {
+      previousImage.classList.remove('active');
+    }
+
+    // Muestra la nueva imagen
+    img.classList.add('active');
+  };
+}
+
+// Muestra la primera imagen
+showImage(currentImageIndex);
+
+// Cambia la imagen cada 3 segundos
+setInterval(() => {
+  currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+  showImage(currentImageIndex);
+}, 3000);
+</script>
+
 </div>
     </section>
 

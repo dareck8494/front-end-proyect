@@ -5,7 +5,7 @@ body {
     padding: 0;
     line-height: 1.6;
     background-color: #ffffff;
-    box-sizing: border-box;
+    
 }
 
 /* Header */
@@ -84,6 +84,33 @@ h1{
         z-index: 1;
       }
 
+/*   */ 
+
+#slideshow {
+  width: 800px;
+  height: 600px;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8%;
+}
+
+#slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition:opacity 1s ease-in-out;
+  
+}
+
+#slideshow img.active {
+  opacity: 1;
+}
+
 
 /* Secciones */
 .section {
@@ -144,28 +171,6 @@ footer {
  
  
 }
-
-
-
-
-.slideshow-container {
-    position: relative;
-    max-width: 1000px;
-    margin: auto;
-    overflow: hidden;
-  }
-  
-  /* Slides */
-  .slide {
-    display: none;
-    position: relative;
-    text-align: center;
-  }
-  
-  .slide img {
-    width: 80%;
-    border-radius: 10px;
-  }
   
   /* Caption text */
   .caption {
@@ -180,62 +185,7 @@ footer {
     font-size: 16px;
   }
   
-  /* Navigation buttons */
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color:#b86b77;
-    color: white;
-    padding: 20px;
-    cursor:pointer;
-    border: none;
-    border-radius: 10%;
-    user-select:none;
-  }
-  
-  .prev {
-    left: 10px;
-  }
-  
-  .next {
-    right: 10px;
-  }
-  
-  /* Dots */
-  .dots-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
-    background-color: #b86b77;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .dot.active {
-    background-color: #717171;
-  }
-  
-  /* Fade animation */
-  .fade {
-    animation: fadeEffect 1s;
-  }
-  
-  @keyframes fadeEffect {
-    from {
-      opacity: 0.4;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+
 
   .card {
 
